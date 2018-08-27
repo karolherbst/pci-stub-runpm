@@ -87,7 +87,7 @@ static struct dev_pm_ops pci_stub_runpm_ops = {
 
 static struct pci_device_id pci_stub_runpm_pci_device_id = {
 	.vendor = 0x10de,
-	.device = 0x1c8d,
+	.device = PCI_ANY_ID,
 	.subvendor = PCI_ANY_ID,
 	.subdevice = PCI_ANY_ID,
 	.class = PCI_BASE_CLASS_DISPLAY << 16,
