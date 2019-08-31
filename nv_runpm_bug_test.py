@@ -143,6 +143,10 @@ if args.action == "OFF" or args.action == "cycle":
 			time.sleep(0.1)
 			pcipeek(BUS, 0xb0)
 
+	pcirem(GPU)
+	if devExists(HDA):
+		pcirem(HDA)
+
 
 if args.action == "ON" or args.action == "cycle":
 	print("turning GPU on")
@@ -171,9 +175,12 @@ if args.action == "ON" or args.action == "cycle":
 	pcimask(BUS, 0x084, 0x0, 0x3)
 	pcipeek(BUS, 0x084)
 
-	pcirem(GPU)
+	if devExists(GPU):
+		pcirem(GPU)
+
 	if devExists(HDA):
 		pcirem(HDA)
+
 	scanPCI()
 	time.sleep(0.1)
 	if not devExists(GPU):
